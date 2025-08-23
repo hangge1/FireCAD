@@ -14,6 +14,10 @@ public:
     ~QtVtkOcct();
 
 private:
+    void addConeTest();
+    void addOccBoxTest();
+
+private:
     //Ui::QtVtkOcctClass ui;
 
     QVTKOpenGLNativeWidget* vtkWidget;

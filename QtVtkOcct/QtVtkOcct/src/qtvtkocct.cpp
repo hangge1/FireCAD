@@ -6,6 +6,8 @@
 #include <vtkRenderer.h>
 #include <vtkConeSource.h>
 #include <vtkGenericOpenGLRenderWindow.h>
+#include <BRepPrimAPI_MakeBox.hxx>
+#include <IVtkTools_ShapeDataSource.hxx>
 
 QtVtkOcct::QtVtkOcct(QWidget *parent)
     : QMainWindow(parent)
@@ -16,6 +18,16 @@ QtVtkOcct::QtVtkOcct(QWidget *parent)
 	setCentralWidget(vtkWidget);
 
 
+	//addConeTest();
+	addOccBoxTest();
+
+}
+
+QtVtkOcct::~QtVtkOcct()
+{}
+
+void QtVtkOcct::addConeTest()
+{
 	vtkNew<vtkConeSource> cone;
 	cone->SetHeight(3.0);
 	cone->SetRadius(1.0);
@@ -34,6 +46,24 @@ QtVtkOcct::QtVtkOcct(QWidget *parent)
 	renderWindow->AddRenderer(render);
 }
 
-QtVtkOcct::~QtVtkOcct()
-{}
+void QtVtkOcct::addOccBoxTest()
+{
+	BRepPrimAPI_MakeBox box(2, 2, 2);
+	const TopoDS_Shape& shape = box.Shape();
+
+	vtkNew<IVtkTools_ShapeDataSource> occSource;
+	occSource->SetShape(new IVtkOCC_Shape(shape));
+
+	vtkNew<vtkPolyDataMapper> mapper;
+	mapper->SetInputConnection(occSource->GetOutputPort());
+
+	vtkNew<vtkActor> actor;
+	actor->SetMapper(mapper);
+
+	vtkNew<vtkRenderer> render;
+	render->AddActor(actor);
+
+	auto renderWindow = vtkWidget->renderWindow();
+	renderWindow->AddRenderer(render);
+}
 
