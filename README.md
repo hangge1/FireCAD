@@ -13,6 +13,8 @@ This is a project for recording my studing experience of OCCT + VTK + QT
 
 4、CMake  > 3.16
 
+5、Visual Stdio 2022（with install Qt Visual Stdio Tool Extension）
+
 
 
 # Build Dependencies: 
@@ -48,6 +50,14 @@ for example:
 
 // 4. install all subModules
 	aqt install-qt windows desktop 6.9.1 win64_msvc2022_64 -m all
+
+// 5. so the qt SDK has installed in this path:
+//  C:\Windows\System32\6.9.1
+
+// 6. add qt sdk bin to PATH, for example:
+//  C:\Windows\System32\6.9.1\msvc2022_64\bin
+
+
 ```
 
 
@@ -76,7 +86,7 @@ run this power shell batch:  `./Build.ps1`
 # Run
 cd build
 open .sln  with  Visual Stdio 2022
-run QtVtkOcct Project
+run Project QtVtkOcct 
 
 
 

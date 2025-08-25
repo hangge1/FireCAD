@@ -18,22 +18,9 @@ set(PROJECT_SOURCES
     ${HEADER_FILES}
 )
 
-# source_group("src" FILES ${SRC_FILES} ${HEADER_FILES})
-# source_group("ui" FILES ${UI_FILES})
-# source_group("resource" FILES ${RC_FILES})
-
-message("+++++++++++${CMAKE_BINARY_DIR}------------")
-
 if(MSVC)  
-    file(GLOB_RECURSE QT_GENS
-        ${QT_GENS}
-        "${CMAKE_BINARY_DIR}/autouic_*"
-        "${CMAKE_BINARY_DIR}/mocs_*"
-        "${CMAKE_BINARY_DIR}/ui_*"
-    )
     source_group("Rc Files" FILES ${RC_FILES})
     source_group(TREE ${SRC_DIR} FILES ${SRC_FILES} ${HEADER_FILES} ${HEADER_FILES} ${UI_FILES})
-    source_group("Qt Temp Files" FILES ${QT_GENS})
 endif()
 
 qt_add_executable(${CURRENT_PROJECT_NAME} ${PROJECT_SOURCES})
@@ -69,4 +56,6 @@ vtk_module_autoinit(
 )
 
 # set debugger environment
-set_property(TARGET ${CURRENT_PROJECT_NAME} PROPERTY VS_DEBUGGER_ENVIRONMENT "PATH=$<$<CONFIG:DEBUG>:${OpenCASCADE_BINARY_DIR}d>$<$<NOT:$<CONFIG:DEBUG>>:${OpenCASCADE_BINARY_DIR}>;${VTK_PREFIX_PATH}/bin;%PATH%")
+set_property(TARGET ${CURRENT_PROJECT_NAME} 
+PROPERTY VS_DEBUGGER_ENVIRONMENT "PATH=$<$<CONFIG:DEBUG>:${OpenCASCADE_BINARY_DIR}d>$<$<NOT:$<CONFIG:DEBUG>>:${OpenCASCADE_BINARY_DIR}>;${VTK_PREFIX_PATH}/bin;${QT_DIR}/../../../bin;%PATH%")
+
