@@ -11,18 +11,26 @@
 #include "IVtkOCC_Shape.hxx"
 #include "TopoDS_Shape.hxx"
 
+#define DefaultLayerName "DefaultLayer"
 
 occLayer::occLayer()
+    : occLayer(DefaultLayerName)
 {
+
 }
 
-occLayer::occLayer(const std::string& layer_name)
+occLayer::occLayer(const QString& layer_name)
     : layer_name_(layer_name)
 {
 }
 
 occLayer::~occLayer()
 {
+}
+
+QString occLayer::getName() const
+{
+    return layer_name_;
 }
 
 void occLayer::setRenderWindow(vtkRenderWindow* render_window)

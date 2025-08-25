@@ -1,8 +1,9 @@
 #pragma once
 
-#include <string>
 #include "vtkSmartPointer.h"
 #include "IVtk_Types.hxx"
+
+#include <QString>
 
 class IVtkTools_DisplayModeFilter;
 class IVtkTools_ShapeDataSource;
@@ -17,13 +18,14 @@ class occLayer
 {
 public:
     occLayer();
-    occLayer(const std::string& test_name);
+    occLayer(const QString& test_name);
     occLayer(const occLayer&) = delete;
     occLayer& operator=(const occLayer&) = delete;
     occLayer(occLayer&&) = delete;
     occLayer& operator=(occLayer&&) = delete;
     virtual ~occLayer();
 
+    QString getName() const;
     void setRenderWindow(vtkRenderWindow* render_window);
     void setShape(const TopoDS_Shape& shape);
     void setDisplayMode(IVtk_DisplayMode display_mode);
@@ -41,7 +43,7 @@ protected:
     vtkSmartPointer<vtkPolyDataMapper> mapper_ {};
     vtkSmartPointer<IVtkTools_DisplayModeFilter> display_mode_filter_ {};
     vtkSmartPointer<IVtkTools_ShapeDataSource> occ_source_ {};
-    std::string layer_name_;
+    QString layer_name_;
     vtkRenderWindow* render_window_ {};
     bool is_init_ { false };
     IVtk_DisplayMode display_mode_{ DM_Shading };

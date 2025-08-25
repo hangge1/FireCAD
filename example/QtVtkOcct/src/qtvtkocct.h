@@ -4,10 +4,13 @@
 //#include "ui_qtvtkocct.h"
 
 #include <IVtk_Types.hxx>
-#include <vector>
+#include <QVector>
 
 class QVTKOpenGLNativeWidget;
 class occLayer;
+class QDockWidget;
+class QPushButton;
+class LayerManagerControl;
 
 class QtVtkOcct : public QMainWindow
 {
@@ -24,11 +27,10 @@ protected:
     void destroyLayers();
 
 private:
-
-    std::vector<occLayer*> testLayers_;
-private:
     //Ui::QtVtkOcctClass ui;
-
-    QVTKOpenGLNativeWidget* vtkWidget;
+    QVector<occLayer*> testLayers_;
+    QVTKOpenGLNativeWidget* vtkWidget_;
+    QDockWidget* controlDock_;
+    LayerManagerControl* layoutManagerWidget_;
 };
 
