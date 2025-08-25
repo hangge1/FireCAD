@@ -21,7 +21,34 @@ This is a project for recording my studing experience of OCCT + VTK + QT
 2.  build dependency 【OCCT + VTK】
 3.  install dependency 【OCCT + VTK】
 
-QT：use prebuild binary package， and add the bin path To PATH
+
+
+QT： Please using (python + aqt) to install QT
+
+for example:
+
+```C++
+// install python(version >= 3.13)
+
+// 1. pip install -U pip
+
+// 2. pip install aqtinstall
+
+// 
+// 3. search arch if we want to install qt SDK 6.9.1 for windows 
+// aqt list-qt windows desktop --arch 6.9.1 
+
+//result: 
+	win64_llvm_mingw 
+    win64_mingw 
+    win64_msvc2022_64 
+    win64_msvc2022_arm64_cross_compiled
+
+//we can choose the third: win64_msvc2022_64
+
+// 4. install all subModules
+	aqt install-qt windows desktop 6.9.1 win64_msvc2022_64 -m all
+```
 
 
 
