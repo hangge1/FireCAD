@@ -37,6 +37,8 @@ target_link_libraries(${CURRENT_PROJECT_NAME}
         Qt::Widgets
 )
 
+
+
 target_include_directories(${CURRENT_PROJECT_NAME} PRIVATE ${SRC_DIR})
 
 #process dep OCCT
