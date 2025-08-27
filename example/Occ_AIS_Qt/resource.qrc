@@ -1,0 +1,47 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>resource/add.png</file>
+        <file>resource/axis.png</file>
+        <file>resource/colors.svg</file>
+        <file>resource/cursor_rotate.png</file>
+        <file>resource/cursor_zoom.png</file>
+        <file>resource/datumPln.png</file>
+        <file>resource/delete.svg</file>
+        <file>resource/DrawStyleFlatLines.svg</file>
+        <file>resource/DrawStyleShaded.svg</file>
+        <file>resource/DrawStyleWireFrame.svg</file>
+        <file>resource/edge-selection.svg</file>
+        <file>resource/edit_OK.svg</file>
+        <file>resource/edit-delete.svg</file>
+        <file>resource/face-selection.svg</file>
+        <file>resource/help.png</file>
+        <file>resource/hide.png</file>
+        <file>resource/hideAll.png</file>
+        <file>resource/license.png</file>
+        <file>resource/linear.png</file>
+        <file>resource/Material.svg</file>
+        <file>resource/new_file.png</file>
+        <file>resource/point.png</file>
+        <file>resource/print.png</file>
+        <file>resource/quit.png</file>
+        <file>resource/run.png</file>
+        <file>resource/saveAs.png</file>
+        <file>resource/sel-bbox.svg</file>
+        <file>resource/set.png</file>
+        <file>resource/show.png</file>
+        <file>resource/showAll.png</file>
+        <file>resource/triangle.png</file>
+        <file>resource/utilities-terminal.svg</file>
+        <file>resource/vertex-selection.svg</file>
+        <file>resource/view-axonometric.svg</file>
+        <file>resource/view-bottom.svg</file>
+        <file>resource/view-front.svg</file>
+        <file>resource/view-fullscreen.svg</file>
+        <file>resource/view-left.svg</file>
+        <file>resource/view-rear.svg</file>
+        <file>resource/view-right.svg</file>
+        <file>resource/view-select.svg</file>
+        <file>resource/view-top.svg</file>
+        <file>resource/QtVtkOcct.ico</file>
+    </qresource>
+</RCC>

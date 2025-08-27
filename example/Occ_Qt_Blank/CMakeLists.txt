@@ -4,25 +4,25 @@ get_current_directory_name(CURRENT_PROJECT_NAME)
 message("===========Current directory name: ${CURRENT_PROJECT_NAME}===========")
 
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
-set(RES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/resource)
 
-file(GLOB_RECURSE RC_FILES "${RES_DIR}/*.rc")
+file(GLOB_RECURSE QRC_FILES "*.qrc")
 file(GLOB_RECURSE UI_FILES "${SRC_DIR}/*.ui")
 file(GLOB_RECURSE SRC_FILES "${SRC_DIR}/*.cpp" "main.cpp")
 file(GLOB_RECURSE HEADER_FILES "${SRC_DIR}/*.h" "${SRC_DIR}/*.hpp")
 
 set(PROJECT_SOURCES
-    ${RC_FILES}
+    ${QRC_FILES}
     ${UI_FILES}
     ${SRC_FILES}
     ${HEADER_FILES}
 )
 
 if(MSVC)  
-    source_group("Rc Files" FILES ${RC_FILES})
+    source_group("Qrc Files" FILES ${QRC_FILES})
     source_group(TREE ${SRC_DIR} FILES ${SRC_FILES} ${HEADER_FILES} ${HEADER_FILES} ${UI_FILES})
 endif()
 
+set(CMAKE_AUTORCC ON)
 qt_add_executable(${CURRENT_PROJECT_NAME} ${PROJECT_SOURCES})
 
 set_target_properties(${CURRENT_PROJECT_NAME}

@@ -3,3 +3,9 @@
 **/build/
 **/out/
 **/.vs/
+*.aps
+*.ncb
+*.opt
+*.plg
+*.sdf
+*.suo
