@@ -1,8 +1,4 @@
 
-get_current_directory_name(CURRENT_PROJECT_NAME)
-message("===========Current directory name: ${CURRENT_PROJECT_NAME}===========")
-
-
 find_package(OpenCASCADE)
 find_package(VTK COMPONENTS 
   CommonColor
@@ -21,8 +17,13 @@ if (NOT VTK_FOUND)
 endif()
 
 
+get_current_directory_name(CURRENT_PROJECT_NAME)
+message("===========Current directory name: ${CURRENT_PROJECT_NAME}===========")
+
+recursive_collect_files(SOURCE_FILES HEADER_FILES)
 add_executable (${CURRENT_PROJECT_NAME}
-  OcctAis.cpp
+  ${SOURCE_FILES} 
+  ${HEADER_FILES}
 )
 
 if(WIN32)

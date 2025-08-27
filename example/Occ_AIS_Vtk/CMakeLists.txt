@@ -1,8 +1,4 @@
 
-get_current_directory_name(CURRENT_PROJECT_NAME)
-message("===========Current directory name: ${CURRENT_PROJECT_NAME}===========")
-
-
 find_package(OpenCASCADE)
 find_package(VTK COMPONENTS 
   CommonColor
@@ -20,9 +16,13 @@ if (NOT VTK_FOUND)
   message(FATAL_ERROR "CylinderExample: Unable to find the VTK build folder.")
 endif()
 
+get_current_directory_name(CURRENT_PROJECT_NAME)
+message("===========Current directory name: ${CURRENT_PROJECT_NAME}===========")
 
+recursive_collect_files(SOURCE_FILES HEADER_FILES)
 add_executable (${CURRENT_PROJECT_NAME}
-  OcctAisHello.cpp
+  ${SOURCE_FILES} 
+  ${HEADER_FILES}
 )
 
 target_include_directories (${CURRENT_PROJECT_NAME} PRIVATE ${OpenCASCADE_INCLUDE_DIR})
