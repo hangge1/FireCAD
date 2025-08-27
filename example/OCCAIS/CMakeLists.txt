@@ -22,8 +22,20 @@ endif()
 
 
 add_executable (${CURRENT_PROJECT_NAME}
-  OcctAisHello.cpp
+  OcctAis.cpp
 )
+
+if(WIN32)
+  set_target_properties(${CURRENT_PROJECT_NAME} PROPERTIES
+      WIN32_EXECUTABLE TRUE
+  )
+
+  if (MSVC)
+    target_compile_options(${CURRENT_PROJECT_NAME} PRIVATE "/utf-8")
+  endif()
+endif()
+
+
 
 target_include_directories (${CURRENT_PROJECT_NAME} PRIVATE ${OpenCASCADE_INCLUDE_DIR})
 
