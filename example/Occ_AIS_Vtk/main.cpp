@@ -22,7 +22,8 @@ int main()
 
     iren->SetRenderWindow(renderWindow);
     iren->SetInteractorStyle(istyle);
-
+    
+    //this is occ provide vtkAlgorithm for adapting intput data of TopoDS_Shape
     vtkNew<IVtkTools_ShapeDataSource> occSource;
     occSource->SetShape(new IVtkOCC_Shape(shape));
 

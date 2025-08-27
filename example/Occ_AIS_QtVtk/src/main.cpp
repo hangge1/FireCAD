@@ -1,13 +1,11 @@
-#include "qtvtkocct.h"
+#include "mainWindow.h"
 #include <QtWidgets/QApplication>
-#include <QVTKOpenGLNativeWidget.h>
 
 int main(int argc, char *argv[])
 {
-    QSurfaceFormat::setDefaultFormat(QVTKOpenGLNativeWidget::defaultFormat());
-
     QApplication app(argc, argv);
-    QtVtkOcct window;
+    MainWindow window;
+    window.resize(800, 600);
     window.show();
     return app.exec();
 }
